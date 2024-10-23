@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Form from "./components/Form";
+import ListaVagas from "./components/ListaVagas";
+import styled from "styled-components";
 
-function App() {
+
+
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+`;
+
+
+const vagas = [
+  {title: 'Frontend Developer', description: 'desenvolvimento de interfaces com React.'},
+  {title: 'Backend Developer', description: 'Trabalho com Node.js e APIs RESTful.'},
+];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PageWrapper>
+      <Header/>
+      <Hero/>
+      <Form/>
+      <ListaVagas vagas={vagas} />
+    </PageWrapper>
   );
-}
+};
 
 export default App;
